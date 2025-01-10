@@ -1,38 +1,51 @@
-# sv
+# OAuth Demo Frontend
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+OAuth Demo is a frontend application built with SvelteKit. It provides a user interface for normal sign-in/sign-up with email and password or Google OAuth.
 
-## Creating a project
+This project is intended to be used with [OAuth Demo Backend](https://github.com/RasyaJusticio/oauth-demo-backend)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Routes
 
-```bash
-# create a new project in the current directory
-npx sv create
+| URL              | Description                                                                |
+| ---------------- | -------------------------------------------------------------------------- |
+| `/`              | Home page. Can only be accessed after loggin in                            |
+| `sign-in`        | Where user can sign-in using email/password or with Google OAuth           |
+| `auth?code=XXXX` | Exchanges the auth code from backend Google callback with the access token |
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Run Locally
 
-## Developing
+1. Clone the project
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+   ```bash
+   git clone https://github.com/RasyaJusticio/oauth-demo-frontend
+   ```
 
-```bash
-npm run dev
+2. Install dependencies
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+   ```bash
+   npm install
+   ```
 
-## Building
+3. Setup your environment
 
-To create a production version of your app:
+   - Copy the .env.example file to .env
 
-```bash
-npm run build
-```
+        ```bash
+        cp .env.example .env
+        ```
 
-You can preview the production build with `npm run preview`.
+   - Set your backend url
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+        ```env
+        PUBLIC_BACKEND_URL=
+        ```
+
+4. Start the server
+
+   ```bash
+   npm run dev
+   ```
+
+## License
+
+[MIT](/LICENSE)
